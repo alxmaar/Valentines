@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+       body {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e6;
+        }
+        h1 {
+            color: #ff4d4d;
+            
+        }
+        #animationContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            animation: spiralAnimation 10s linear forwards;
+        }
+        
+        #fireworks {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(2); /* Ajusta la escala para hacerlos más grandes */
+            z-index: 2; /* Asegura que estén sobre la imagen */
+        }
+        h1#valentineText {
+    font-size: 70px;
+}
+
+
+
+        @keyframes spiralAnimation {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio" autoplay loop>
+        <source src="audio.mp3" type="audio/mp3">
+    </audio>
+    <img src="https://i.ytimg.com/vi/6q8jm0Lu7GU/hq720.jpg" alt="Heart Animation" id="animationContainer">
+    <img src="https://i.gifer.com/WS2k.gif" alt="Fireworks" id="animationContainer">
+
+    <h1 id="valentineText">Te amo mi vida</h1>
+
+    <script>
+        // Función para reproducir audio
+        function playAudio() {
+            var audio = new Audio('audio.mp3');
+            audio.play();
+        }
+
+        // Ejecutar función al cargar la página
+        window.onload = function() {
+            playAudio();
+        };
+        function createFireworks() {
+            var fireworks = document.getElementById('animationContainer');
+            fireworks.style.animation = 'spin 10s linear infinite';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e6;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        #valentineImage {
+            width: 800px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            position: relative;
+        }
+        button:hover {
+            background-color: #ff6666;
+        }
+        #buttonContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <img src="https://i.pinimg.com/736x/99/eb/d9/99ebd9dd66210ef759f3d6224d650c97.jpg" alt="Valentine's Day Image" id="valentineImage">
+    <div id="buttonContainer">
+        <button onclick="yesClicked()">Yes</button>
+        <button onmouseover="moveButtonRandomly()" id="noButton">No</button>
+    </div>
+
+    <script>
+        function yesClicked() {
+            window.open("sayyes.html", "_blank");
+        }
+
+        function moveButtonRandomly() {
+            var button = document.getElementById("noButton");
+            var container = document.getElementById("buttonContainer");
+            var containerRect = container.getBoundingClientRect();
+            var randomX = Math.random() * (containerRect.width - button.offsetWidth);
+            var randomY = Math.random() * (containerRect.height - button.offsetHeight);
+            button.style.left = randomX + "px";
+            button.style.top = randomY + "px";
+        }
+    </script>
+</body>
+</html>
